@@ -24,6 +24,20 @@ body {
     text-align: center;
 }
 
+.header-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Jarak rentang antara kedua logo */
+    margin-bottom: 16px; /* Jarak antara logo ke bawah (judul) */
+}
+
+.logo-img {
+    height: 50px; /* Atur seberapa besar/tinggi logonya di sini */
+    width: auto;
+    object-fit: contain; /* Memastikan logo tidak gepeng */
+}
+
 h1 {
     color: #333;
     margin-bottom: 8px;
