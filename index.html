@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twibbon Maker Simpel - Multi Frame</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Twibbon Generator HD</h1>
+        <p class="subtitle">Pilih bingkai, upload fotomu, dan download hasilnya</p>
+
+        <div class="frame-selector" id="frameSelector">
+            <img src="img_twibbon/HACKER.png" alt="Bingkai 1" class="thumb-frame active" data-src="img_twibbon/HACKER.png">
+            <img src="img_twibbon/HIPSTER.png" alt="Bingkai 2" class="thumb-frame" data-src="img_twibbon/HIPSTER.png">
+            <img src="img_twibbon/HUSTLER.png" alt="Bingkai 3" class="thumb-frame" data-src="img_twibbon/HUSTLER.png">
+        </div>
+
+        <div class="preview-container" id="previewContainer">
+            <div class="canvas-wrapper" id="canvasWrapper">
+                <img id="userPhoto" src="" alt="Foto Anda" class="hidden">
+                <img id="twibbonFrame" src="img_twibbon/HACKER.png" alt="Bingkai Twibbon">
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="file-input-wrapper">
+                <label for="uploadInput" class="btn-primary">Pilih Foto Anda</label>
+                <input type="file" id="uploadInput" accept="image/*">
+            </div>
+
+            <div class="slider-group hidden" id="zoomControls">
+                <label for="zoomSlider">Ukuran Foto:</label>
+                <input type="range" id="zoomSlider" min="10" max="200" value="100">
+            </div>
+
+            <button id="downloadBtn" class="btn-success hidden">Download Kualitas HD</button>
+        </div>
+    </div>
+
+    <canvas id="hiddenCanvas" style="display: none;"></canvas>
+
+    <script src="index.js"></script>
+</body>
+</html>
