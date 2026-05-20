@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twibbon Maker Simpel - Multi Frame</title>
+    <title>Sprint Camp 2026</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>Twibbon Generator HD</h1>
+        <h1>Twibbon Sprint Camp 2026</h1>
         <p class="subtitle">Pilih bingkai, upload fotomu, dan download hasilnya</p>
 
         <div class="frame-selector" id="frameSelector">
-            <img src="img_twibbon/HACKER.png" alt="Bingkai 1" class="thumb-frame active" data-src="img_twibbon/HACKER.png">
-            <img src="img_twibbon/HIPSTER.png" alt="Bingkai 2" class="thumb-frame" data-src="img_twibbon/HIPSTER.png">
-            <img src="img_twibbon/HUSTLER.png" alt="Bingkai 3" class="thumb-frame" data-src="img_twibbon/HUSTLER.png">
+            <div class="frame-item active" data-src="img_twibbon/HACKER.png">
+                <img src="img_twibbon/HACKER.png" alt="Bingkai Hacker" class="thumb-frame">
+                <span class="frame-label">Hacker</span>
+            </div>
+            
+            <div class="frame-item" data-src="img_twibbon/HIPSTER.png">
+                <img src="img_twibbon/HIPSTER.png" alt="Bingkai Hipster" class="thumb-frame">
+                <span class="frame-label">Hipster</span>
+            </div>
+            
+            <div class="frame-item" data-src="img_twibbon/HUSTLER.png">
+                <img src="img_twibbon/HUSTLER.png" alt="Bingkai Hustler" class="thumb-frame">
+                <span class="frame-label">Hustler</span>
+            </div>
         </div>
 
         <div class="preview-container" id="previewContainer">

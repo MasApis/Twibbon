@@ -6,7 +6,7 @@ const zoomControls = document.getElementById('zoomControls');
 const downloadBtn = document.getElementById('downloadBtn');
 const canvasWrapper = document.getElementById('canvasWrapper');
 const hiddenCanvas = document.getElementById('hiddenCanvas');
-const thumbFrames = document.querySelectorAll('.thumb-frame');
+const frameItems = document.querySelectorAll('.frame-item');
 
 // State presisi
 let imgScale = 1;
@@ -19,10 +19,15 @@ let originalWidth = 0;
 let originalHeight = 0;
 
 // --- 1. PILIH BINGKAI ---
-thumbFrames.forEach(thumb => {
-    thumb.addEventListener('click', function() {
-        thumbFrames.forEach(t => t.classList.remove('active'));
+frameItems.forEach(item => {
+    item.addEventListener('click', function() {
+        // Hapus class 'active' dari semua wadah frame
+        frameItems.forEach(t => t.classList.remove('active'));
+        
+        // Tambahkan class 'active' ke wadah yang sedang diklik
         this.classList.add('active');
+        
+        // Ambil path gambar dari wadah, lalu pasang ke kanvas preview
         twibbonFrame.src = this.getAttribute('data-src');
     });
 });
