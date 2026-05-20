@@ -18,22 +18,36 @@ let startX, startY;
 let originalWidth = 0;
 let originalHeight = 0;
 
-// --- 1. PILIH BINGKAI ---
+// --- 1. PILIH BINGKAI (Diperbarui dengan Virtual Preloading) ---
 frameItems.forEach(item => {
     item.addEventListener('click', function() {
-        // Hapus class 'active' dari semua wadah frame
+        // Cegah proses jika frame yang diklik adalah frame yang sedang aktif
+        if (this.classList.contains('active')) return;
+
         frameItems.forEach(t => t.classList.remove('active'));
-        
-        // Tambahkan class 'active' ke wadah yang sedang diklik
         this.classList.add('active');
         
-        // Ambil path gambar dari wadah, lalu pasang ke kanvas preview
-        twibbonFrame.src = this.getAttribute('data-src');
+        const newSrc = this.getAttribute('data-src');
+        
+        // OPTIMASI: Buat gambar virtual untuk load di memori (belakang layar)
+        const imgLoader = new Image();
+        imgLoader.src = newSrc;
+        
+        // Ganti frame utama HANYA jika gambar baru sudah selesai dirender di memori
+        imgLoader.onload = () => {
+            twibbonFrame.src = newSrc;
+        };
     });
 });
 
 // Reset posisi foto kalau frame diganti dan foto sudah diupload
 twibbonFrame.addEventListener('load', function() {
+    
+    // OPTIMASI: Kunci bentuk (rasio) kontainer agar tidak kempes/loncat saat ganti frame
+    if (this.naturalWidth && this.naturalHeight) {
+        canvasWrapper.style.aspectRatio = `${this.naturalWidth} / ${this.naturalHeight}`;
+    }
+    
     if (!userPhoto.classList.contains('hidden')) {
         calculateBasePosition();
     }
