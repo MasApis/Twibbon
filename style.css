@@ -25,17 +25,22 @@ body {
 }
 
 .header-logos {
-    display: flex;
+    display: inline-flex; /* Menggunakan inline-flex agar lebarnya pas membungkus logo saja */
     justify-content: center;
     align-items: center;
-    gap: 20px; /* Jarak rentang antara kedua logo */
-    margin-bottom: 16px; /* Jarak antara logo ke bawah (judul) */
+    gap: 24px; /* Jarak antar logo diperlebar sedikit biar lega */
+    margin-bottom: 24px;
+    padding: 12px 32px; /* Ruang kosong di dalam bingkai (atas-bawah 12px, kiri-kanan 32px) */
+    background: #f8fafc; /* Warna background sedikit abu-abu sangat muda */
+    border: 1.5px solid #cbd5e1; /* Garis tepi bingkai */
+    border-radius: 50px; /* Membuat sudutnya sangat melengkung seperti kapsul */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04); /* Bayangan luar yang sangat lembut */
 }
 
 .logo-img {
-    height: 50px; /* Atur seberapa besar/tinggi logonya di sini */
+    height: 50px; 
     width: auto;
-    object-fit: contain; /* Memastikan logo tidak gepeng */
+    object-fit: contain; 
 }
 
 h1 {
